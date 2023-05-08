@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MtlUnitOfMeasureTlService {
@@ -16,6 +17,12 @@ public class MtlUnitOfMeasureTlService {
     public List<MtlUnitOfMeasureTl>list(){
         return mtlUnitOfMeasureTlRepository.findAll();
     }
+    //lau du lieu theo id
+    public Optional<MtlUnitOfMeasureTl> getById(String uomCode){
+        return mtlUnitOfMeasureTlRepository.findById(uomCode);
+    }
+
+
     //add
     public MtlUnitOfMeasureTl addMtlUnitOfMeasureTl(MtlUnitOfMeasureTl mtlUnitOfMeasureTl){
         return mtlUnitOfMeasureTlRepository.save(mtlUnitOfMeasureTl);

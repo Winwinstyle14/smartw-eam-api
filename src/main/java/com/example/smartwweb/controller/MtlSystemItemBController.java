@@ -1,6 +1,7 @@
 package com.example.smartwweb.controller;
 
 import com.example.smartwweb.dto.ResponseObject;
+import com.example.smartwweb.entity.FndFlexValuesVl;
 import com.example.smartwweb.entity.MtlSystemItemB;
 import com.example.smartwweb.service.MtlSystemItemBService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,13 @@ public class MtlSystemItemBController {
     public ResponseEntity<List<MtlSystemItemB>>list(){
         List<MtlSystemItemB>list = mtlSystemItemBService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+    //getById
+    @GetMapping("/{inventoryItemId}")
+    public ResponseEntity<MtlSystemItemB>getById(@PathVariable Long inventoryItemId,Long organizationId){
+        MtlSystemItemB mtlSystemItemB = mtlSystemItemBService.getById(inventoryItemId).get();
+        mtlSystemItemB = mtlSystemItemBService.getById(organizationId).get();
+        return new ResponseEntity<>(mtlSystemItemB,HttpStatus.OK);
     }
     //add
     @PostMapping

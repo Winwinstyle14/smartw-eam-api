@@ -1,6 +1,7 @@
 package com.example.smartwweb.controller;
 
 import com.example.smartwweb.dto.ResponseObject;
+import com.example.smartwweb.entity.MtlSecondaryInventories;
 import com.example.smartwweb.entity.MtlUnitOfMeasureTl;
 import com.example.smartwweb.service.MtlUnitOfMeasureTlService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class MtlUnitOfMeasureTlController {
     public ResponseEntity<List<MtlUnitOfMeasureTl>>list(){
         List<MtlUnitOfMeasureTl>list = mtlUnitOfMeasureTlService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+    @GetMapping("/{uomCode}")
+    public ResponseEntity<MtlUnitOfMeasureTl>getById(@PathVariable String uomCode){
+        MtlUnitOfMeasureTl mtlUnitOfMeasureTl = mtlUnitOfMeasureTlService.getById(uomCode).get();
+        return new ResponseEntity<>(mtlUnitOfMeasureTl,HttpStatus.OK);
     }
     //add
     @PostMapping

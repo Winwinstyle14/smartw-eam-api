@@ -21,6 +21,12 @@ public class FndFlexValueSetsController {
         List<FndFlexValueSets>list = fndFlexValueSetsService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+    //getById
+    @GetMapping("/{flexValueSetId}")
+    public ResponseEntity<FndFlexValueSets>getById(@PathVariable Long flexValueSetId){
+        FndFlexValueSets flexValueSets = fndFlexValueSetsService.getById(flexValueSetId).get();
+        return new ResponseEntity<>(flexValueSets,HttpStatus.OK);
+    }
     //them
     @PostMapping
     public ResponseEntity<FndFlexValueSets>add(@RequestBody FndFlexValueSets fndFlexValueSets){

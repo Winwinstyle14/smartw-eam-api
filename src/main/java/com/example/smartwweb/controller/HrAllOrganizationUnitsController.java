@@ -1,6 +1,7 @@
 package com.example.smartwweb.controller;
 
 import com.example.smartwweb.dto.ResponseObject;
+import com.example.smartwweb.entity.FndFlexValuesVl;
 import com.example.smartwweb.entity.HrAllOrganizationUnits;
 import com.example.smartwweb.service.HrAllOrganizationUnitsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,12 @@ public class HrAllOrganizationUnitsController {
     public ResponseEntity<List<HrAllOrganizationUnits>>list(){
         List<HrAllOrganizationUnits>list = hrAllOrganizationUnitsService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+    //getById
+    @GetMapping("/{organizationId}")
+    public ResponseEntity<HrAllOrganizationUnits>getById(@PathVariable Long organizationId){
+        HrAllOrganizationUnits hrAllOrganizationUnits = hrAllOrganizationUnitsService.getById(organizationId).get();
+        return new ResponseEntity<>(hrAllOrganizationUnits,HttpStatus.OK);
     }
     //add
     @PostMapping

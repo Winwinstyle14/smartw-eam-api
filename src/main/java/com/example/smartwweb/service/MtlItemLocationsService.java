@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MtlItemLocationsService {
@@ -15,6 +16,10 @@ public class MtlItemLocationsService {
     //list
     public List<MtlItemLocations>list(){
         return mtlItemLocationsRepository.findAll();
+    }
+    //lau du lieu theo id
+    public Optional<MtlItemLocations> getById(Long inventoryLocationId){
+        return mtlItemLocationsRepository.findById(inventoryLocationId);
     }
     //add
     public MtlItemLocations addMtlItemLocations(MtlItemLocations mtlItemLocations){

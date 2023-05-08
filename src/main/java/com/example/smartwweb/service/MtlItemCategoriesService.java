@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MtlItemCategoriesService {
@@ -16,6 +17,10 @@ public class MtlItemCategoriesService {
     //list
     public List<MtlItemCategories>list(){
         return mtlItemCategoriesRepository.findAll();
+    }
+    //lau du lieu theo id
+    public Optional<MtlItemCategories> getById(Long inventoryItemId){
+        return mtlItemCategoriesRepository.findById(inventoryItemId);
     }
     //add
     public MtlItemCategories addMtlItemCategories(MtlItemCategories mtlItemCategories){

@@ -27,10 +27,10 @@ public class MtlItemCategories {
     )
     @Column(name = "INVENTORY_ITEM_ID")
     private Long inventoryItemId;
-    @Column(name = "CATEGORY_ID")
-    private Long categoryId;
     @Column(name = "ORGANIZATION_ID")
     private Long organizationId;
+    @Column(name = "CATEGORY_ID")
+    private Long categoryId;
     @Column(name = "LAST_UPDATED_BY")
     private String lastUpdatedBy;
     @Column(name = "LAST_UPDATE_DATE")

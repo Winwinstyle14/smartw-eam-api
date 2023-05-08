@@ -22,6 +22,12 @@ public class MtlParametersController {
         List<MtlParameters>list = mtlParametersService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+    //getById
+    @GetMapping("/{organizationId}")
+    public ResponseEntity<MtlParameters>getById(@PathVariable Long organizationId){
+        MtlParameters mtlParameters = mtlParametersService.getById(organizationId).get();
+        return new ResponseEntity<>(mtlParameters,HttpStatus.OK);
+    }
     //add
     @PostMapping
     public ResponseEntity<MtlParameters>add(@RequestBody MtlParameters mtlParameters){

@@ -23,6 +23,12 @@ public class MtlItemLocationsController {
         List<MtlItemLocations>list = mtlItemLocationsService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+    //getById
+    @GetMapping("/{inventoryLocationId}")
+    public ResponseEntity<MtlItemLocations>getById(@PathVariable Long inventoryLocationId){
+        MtlItemLocations mtlItemLocations = mtlItemLocationsService.getById(inventoryLocationId).get();
+        return new ResponseEntity<>(mtlItemLocations,HttpStatus.OK);
+    }
     //add
     @PostMapping
     public ResponseEntity<MtlItemLocations>add(@RequestBody MtlItemLocations mtlItemLocations){

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MtlSystemItemBService {
@@ -15,6 +16,10 @@ public class MtlSystemItemBService {
     //list
     public List<MtlSystemItemB>list(){
         return mtlSystemItemBRepository.findAll();
+    }
+    //lau du lieu theo id
+    public Optional<MtlSystemItemB> getById(Long inventoryItemId){
+        return mtlSystemItemBRepository.findById(inventoryItemId);
     }
     //add
     public MtlSystemItemB addMtlSystemItemB(MtlSystemItemB mtlSystemItemB){

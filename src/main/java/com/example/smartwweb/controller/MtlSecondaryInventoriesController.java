@@ -22,6 +22,12 @@ public class MtlSecondaryInventoriesController {
         List<MtlSecondaryInventories>list = mtlSecondaryInventoriesService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+    //getById
+    @GetMapping("/{secondaryinventoryName}")
+    public ResponseEntity<MtlSecondaryInventories>getById(@PathVariable String secondaryinventoryName){
+        MtlSecondaryInventories mtlSecondaryInventories = mtlSecondaryInventoriesService.getById(secondaryinventoryName).get();
+        return new ResponseEntity<>(mtlSecondaryInventories,HttpStatus.OK);
+    }
     //add
     @PostMapping
     public ResponseEntity<MtlSecondaryInventories>add(@RequestBody MtlSecondaryInventories mtlSecondaryInventories){
@@ -35,10 +41,10 @@ public class MtlSecondaryInventoriesController {
         return new ResponseEntity<>(newMtlSecondaryInventories1,HttpStatus.OK);
     }
     //delete
-    @DeleteMapping("/{organizationId}")
-    public ResponseEntity<ResponseObject>delete(@PathVariable Long organizationId){
-        Boolean test = mtlSecondaryInventoriesService.delete(organizationId);
-        ResponseObject responseObject = new ResponseObject(test,null);
+    @DeleteMapping("/{secondaryinventoryName}")
+    public ResponseEntity<?>delete(@PathVariable String secondaryinventoryName){
+        mtlSecondaryInventoriesService.delete(secondaryinventoryName);
+        ResponseObject responseObject = new ResponseObject(true,null);
         return new ResponseEntity<>(responseObject,HttpStatus.OK);
     }
 }

@@ -16,19 +16,10 @@ import java.util.Date;
 @Table(name = "MTL_SECONDARY_INVENTORIES")
 public class MtlSecondaryInventories {
     @Id
-    @SequenceGenerator(
-            name = "MTL_SECONDARY_INVENTORIES_sequence",
-            sequenceName = "MTL_SECONDARY_INVENTORIES_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY,
-            generator = "MTL_SECONDARY_INVENTORIES_sequence"
-    )
-    @Column(name = "ORGANIZATION_ID")
-    private Long organizationId;
     @Column(name = "SECONDARY_INVENTORY_NAME")
     private String secondaryinventoryName;
+    @Column(name = "ORGANIZATION_ID")
+    private Long organizationId;
     @Column(name = "DESCRIPTION")
     private String description;
     @Column(name = "DISABLE_DATE")

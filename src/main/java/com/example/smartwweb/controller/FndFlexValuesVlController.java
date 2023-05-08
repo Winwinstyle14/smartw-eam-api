@@ -1,6 +1,7 @@
 package com.example.smartwweb.controller;
 
 import com.example.smartwweb.dto.ResponseObject;
+import com.example.smartwweb.entity.FndFlexValueSets;
 import com.example.smartwweb.entity.FndFlexValuesVl;
 import com.example.smartwweb.service.FndFlexValuesVlService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,12 @@ public class FndFlexValuesVlController {
     public ResponseEntity<List<FndFlexValuesVl>>list(){
         List<FndFlexValuesVl>list = fndFlexValuesVlService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+    //getById
+    @GetMapping("/{flexValueId}")
+    public ResponseEntity<FndFlexValuesVl>getById(@PathVariable Long flexValueId){
+        FndFlexValuesVl fndFlexValuesVl = fndFlexValuesVlService.getById(flexValueId).get();
+        return new ResponseEntity<>(fndFlexValuesVl,HttpStatus.OK);
     }
     //add
     @PostMapping

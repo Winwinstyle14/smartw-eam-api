@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MtlParametersService {
@@ -15,6 +16,10 @@ public class MtlParametersService {
     //list
     public List<MtlParameters>list(){
         return mtlParametersRepository.findAll();
+    }
+    //lau du lieu theo id
+    public Optional<MtlParameters> getById(Long organizationId){
+        return mtlParametersRepository.findById(organizationId);
     }
     //add
     public MtlParameters addMtlParameters(MtlParameters mtlParameters){

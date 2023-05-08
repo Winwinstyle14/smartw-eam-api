@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MtlSecondaryInventoriesService {
@@ -17,6 +18,10 @@ public class MtlSecondaryInventoriesService {
     public List<MtlSecondaryInventories>list(){
         return mtlSecondaryInventoriesRepository.findAll();
     }
+    //lau du lieu theo id
+    public Optional<MtlSecondaryInventories> getById(String secondaryinventoryName){
+        return mtlSecondaryInventoriesRepository.findById(secondaryinventoryName);
+    }
     //add
     public MtlSecondaryInventories addMtlSecondaryInventories(MtlSecondaryInventories mtlSecondaryInventories){
         return mtlSecondaryInventoriesRepository.save(mtlSecondaryInventories);
@@ -26,12 +31,7 @@ public class MtlSecondaryInventoriesService {
         return mtlSecondaryInventoriesRepository.save(mtlSecondaryInventories);
     }
     //delete
-    public boolean delete (Long organizationId){
-        try {
-            mtlSecondaryInventoriesRepository.deleteById(organizationId);
-            return true;
-        }catch (Exception e){
-            return false;
-        }
+    public void delete(String secondaryinventoryName){
+        mtlSecondaryInventoriesRepository.deleteById(secondaryinventoryName);
     }
 }

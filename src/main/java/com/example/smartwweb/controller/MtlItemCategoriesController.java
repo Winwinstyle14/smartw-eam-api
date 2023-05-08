@@ -23,6 +23,12 @@ public class MtlItemCategoriesController {
         List<MtlItemCategories>list = mtlItemCategoriesService.list();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+    //getById
+    @GetMapping("/{inventoryItemId}")
+    public ResponseEntity<MtlItemCategories>getById(@PathVariable Long inventoryItemId){
+        MtlItemCategories mtlItemCategories = mtlItemCategoriesService.getById(inventoryItemId).get();
+        return new ResponseEntity<>(mtlItemCategories,HttpStatus.OK);
+    }
     //add
     @PostMapping
     public ResponseEntity<MtlItemCategories>add(@RequestBody MtlItemCategories mtlItemCategories){

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FndFlexValueSetsService {
@@ -14,6 +15,10 @@ public class FndFlexValueSetsService {
     //list
     public List<FndFlexValueSets> list(){
         return fndFlexValueSetsRepository.findAll();
+    }
+    //lay theo id
+    public Optional<FndFlexValueSets> getById(Long flexValueSetId){
+        return fndFlexValueSetsRepository.findById(flexValueSetId);
     }
     //add
     public FndFlexValueSets addFndFlexValueSets(FndFlexValueSets fndFlexValueSets){
