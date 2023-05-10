@@ -21,8 +21,6 @@ public class MtlUnitOfMeasureTlService {
     public Optional<MtlUnitOfMeasureTl> getById(String uomCode){
         return mtlUnitOfMeasureTlRepository.findById(uomCode);
     }
-
-
     //add
     public MtlUnitOfMeasureTl addMtlUnitOfMeasureTl(MtlUnitOfMeasureTl mtlUnitOfMeasureTl){
         return mtlUnitOfMeasureTlRepository.save(mtlUnitOfMeasureTl);
