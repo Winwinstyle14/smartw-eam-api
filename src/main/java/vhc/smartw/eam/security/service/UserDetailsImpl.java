@@ -13,7 +13,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+
 import java.util.Date;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -104,6 +106,7 @@ public class UserDetailsImpl implements UserDetails {
 
 
 
+
     private Collection<? extends GrantedAuthority> authorities;
 
     public static UserDetailsImpl build(User user) {
@@ -114,6 +117,7 @@ public class UserDetailsImpl implements UserDetails {
         return new UserDetailsImpl(
                 user.getId(),
                 user.getUsername(),
+
                 user.getPassword(),
                 user.getFullname(),
                 user.getSex(),
@@ -140,6 +144,8 @@ public class UserDetailsImpl implements UserDetails {
                 user.getRegion(),
                 user.getTtName(),
                 user.getTvtName(),
+
+
                 authorities);
     }
     @Override

@@ -7,7 +7,8 @@ import lombok.Setter;
 
 import java.util.List;
 
-
+@Getter
+@Setter
 
 public class JwtResponse {
     private String token;
@@ -72,4 +73,5 @@ public class JwtResponse {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
+
 }
